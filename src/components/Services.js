@@ -1,32 +1,17 @@
-import React from 'react'
-import Title from '../reusableComponents/Title'
-import { services } from '../utils/data'
-
-function Services() {
+import { services } from '../data'
+import Title from './Title'
+import Service from './Service'
+const Services = () => {
   return (
-    <section className="section services" id="services">
-   <Title title={"our"} subTitle={"services"}/>
-    <div className="section-center services-center">
-   {services.map((data) => {
-    const {description,icon,id,title} = data
-    return(
-        <article className="service" key={id}>
-        <span className="service-icon">
-          <i className={icon}></i>
-        </span>
-        <div className="service-info">
-          <h4 className="service-title">{title}</h4>
-          <p className="service-text">
-            {description}
-          </p>
-        </div>
-      </article>
-    )
-   })}
+    <section className='section services' id='services'>
+      <Title title='our' subTitle='services' />
 
-    </div>
-  </section>
+      <div className='section-center services-center'>
+        {services.map((service) => {
+          return <Service {...service} key={service.id} />
+        })}
+      </div>
+    </section>
   )
 }
-
 export default Services
